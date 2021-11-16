@@ -172,26 +172,40 @@
 
 /* Pullup Image + Gallery ----------------------------------------------------*/
 
-#pullup img, #pullup figure {
-    max-width: 100%;
-    margin-bottom: 1rem;
+#pullup .gallery { 
+    display: flex; 
+    max-width: 100%; 
 }
 
-#pullup figure { flex: 1; }
+#pullup img {
+    display: block;
+    max-width: 100%;
+    margin-bottom: 2.5rem;
+}
 
-#pullup figure img { margin-bottom: 0; }
+#pullup figure {
+    max-width: 100%;
+    margin-bottom: 2.5rem;
+    flex: 1;
+}
 
-#pullup .gallery { display: flex; }
+#pullup figure img { margin-bottom: 0.5rem; }
 
 #pullup figcaption {
-    text-align: center;
     font-size: 0.9em;
     font-style: italic;
+    text-align: center;
 }
+
+/* Gallery Grid */
+#pullup .gallery.col2 > img { max-width: 50%; }
+#pullup .gallery.col3 > img { max-width: 33.3%; }
+
 
 /* Queries -------------------------------------------------------------------*/
 
 @media (max-width: 600px){
     #pullup { padding: 3.5rem 2.2rem 2rem 2.2rem; }
     #pullup .gallery { flex-direction: column; }
+    #pullup .gallery.col2 > img, #pullup .gallery.col3 > img { max-width: 100%; }
 }
