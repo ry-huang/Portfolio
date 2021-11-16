@@ -61,7 +61,13 @@ $(document).ready(function(){
 
     $("#photography").click(function() {
         $("#pullupProject .fullDescription").load("projectfiles/photography.html"); 
-        $("#pullupAbout .hero").css({ "background": "url(images/about/banner-about.jpg)"});
+        $("#pullupProject .hero").css({ "background": "url(images/about/banner-about.jpg)"});
+
+        /* Project Name Setup */
+        $("#pullupProject .hero h1").html("Photography");
+        $("#pullupProject .hero p").html("");
+
+        /* Project Content Setup */
         setPullup("photography");
     });
 
