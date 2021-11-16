@@ -148,6 +148,11 @@ a:hover {
   color: #fff;
 }
 
+::selection {
+  color: #fff;
+  background: #555;
+}
+
 /* Images -------------------------------------------------------------------*/
 
 #logo{
