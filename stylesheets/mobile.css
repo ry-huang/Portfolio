@@ -16,7 +16,7 @@
     flex-direction: column;
     top: 0;
     left: 0;
-    margin-left: -100%;
+    margin-left: -16rem;
     width: 14rem;
     height: 100vh;
     padding: 5rem 2.2rem;
@@ -29,5 +29,5 @@
 }
   
 .mobile .mobileMenu.expanded {
-    margin-left: 0%;
+    margin-left: 0rem;
 }

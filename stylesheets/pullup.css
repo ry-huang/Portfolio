@@ -76,13 +76,7 @@
     margin-bottom: 1rem;
 }
 
-#pullup #pullupAbout h1 {
-    margin-top: 4rem;
-    font-size: 2em;
-    text-align: center;
-}
-
-#pullup #pullupProject h1 {
+#pullup #pullupContent h1 {
     font-size: 1.68em;
     font-weight: 700;
     letter-spacing: 1.1px;
@@ -102,11 +96,11 @@
     width: 100%;
 }
 
-#pullup #pullupAbout, #pullup #pullupProject {
+#pullup #pullupContent {
     display: none;
 }
 
-#pullup #pullupAbout.show, #pullup #pullupProject.show {
+#pullup #pullupContent.show {
     display: flex;
 }
 

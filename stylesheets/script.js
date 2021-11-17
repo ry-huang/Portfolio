@@ -12,12 +12,17 @@ $(document).ready(function(){
     }
 
     $(".triplebar").click(function() {
-        $(".mobileMenu").css({ "transition": "all 1s ease-out" })
+        $(".mobileMenu").css({ 
+            "transition": "all 0.5s cubic-bezier(0.5, 0, 0.5, 1)",
+            "transition-timing-function":"cubic-bezier(0.5, 0, 0.5, 1)"
+        })
         $(".mobileMenu").toggleClass("expanded");;
+    });
+    $(".mobile .mobileMenu a").click(function() {
+        $(".mobileMenu").removeClass("expanded");;
     });
 
     $("#currentYear").html(new Date().getFullYear());
-
 
 
     // Hero Fix ----------------------------------------------------------------------
@@ -37,48 +42,40 @@ $(document).ready(function(){
         /* Project Hero Image Setup */
         const PROJECTIMGURL = $("#"+(PROJECTID)+" img").attr("src")
         const PROJECTHERO = "url("+PROJECTIMGURL+")";
-        $("#pullupProject .hero").css({ "background":PROJECTHERO, "background-position":"50% 50%" });
+        $("#pullupContent .hero").css({ "background":PROJECTHERO, "background-position":"50% 50%" });
 
         /* Project Name Setup */
         const PNAME = "#"+(PROJECTID)+" p:first-of-type";
         const PROJECTNAME = $(PNAME).text();
-        $("#pullupProject .hero h1").html(PROJECTNAME);
+        $("#pullupContent .hero h1").html(PROJECTNAME);
         const PSUB = "#"+(PROJECTID)+" p:nth-child(2)";
         const PSUBNAME = $(PSUB).text();
-        $("#pullupProject .hero p").html(PSUBNAME);
+        $("#pullupContent .hero p").html(PSUBNAME);
 
         /* Project Content Setup */
-        const PROJECTDESC = "projectfiles/" + (PROJECTID) + ".html"
-        $("#pullupProject .fullDescription").load(PROJECTDESC); 
-
-        setPullup("project");
+        const PROJECTDESC = "pages/" + (PROJECTID) + ".html"
+        $("#pullupContent .fullDescription").load(PROJECTDESC); 
+        setPullup();
     });
 
     $("#about").click(function() { 
-        $("#pullupAbout .hero").css({ "background": "url(images/about/banner-about.jpg)"});
-        setPullup("about");
+        $("#pullupContent .fullDescription").load("pages/about.html"); 
+        $("#pullupContent .hero").css({ "background": "url(images/about/banner-about.jpg)", "background-position":"50% 50%" });
+        $("#pullupContent .hero h1").html("About Ryan"); /* Project Name Setup */
+        $("#pullupContent .hero p").html("");
+        setPullup(); /* Project Content Setup */
     });
 
     $("#photography").click(function() {
-        $("#pullupProject .fullDescription").load("projectfiles/photography.html"); 
-        $("#pullupProject .hero").css({ "background": "url(images/about/banner-about.jpg)"});
-
-        /* Project Name Setup */
-        $("#pullupProject .hero h1").html("Photography");
-        $("#pullupProject .hero p").html("");
-
-        /* Project Content Setup */
-        setPullup("photography");
+        $("#pullupContent .fullDescription").load("pages/photography.html"); 
+        $("#pullupContent .hero").css({ "background": "url(images/photography/banner-photography.jpg)", "background-position":"50% 50%"});
+        $("#pullupContent .hero h1").html("Photography"); /* Project Name Setup */
+        $("#pullupContent .hero p").html("");
+        setPullup(); /* Project Content Setup */
     });
 
-    function setPullup(type) {
-        if(type === "project" || type === "photography") {
-            $("#pullupProject").addClass("show");
-            $("#pullupAbout").removeClass("show");
-        } else { //about
-            $("#pullupAbout").addClass("show");
-            $("#pullupProject").removeClass("show");
-        } 
+    function setPullup() {
+        $("#pullupContent").addClass("show");
         $("#pullup").addClass("show"); 
     }
 
