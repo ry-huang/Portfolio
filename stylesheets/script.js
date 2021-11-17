@@ -42,7 +42,12 @@ $(document).ready(function(){
         /* Project Hero Image Setup */
         const PROJECTIMGURL = $("#"+(PROJECTID)+" img").attr("src")
         const PROJECTHERO = "url("+PROJECTIMGURL+")";
-        $("#pullupContent .hero").css({ "background":PROJECTHERO, "background-position":"50% 50%" });
+        $("#pullupContent .hero").css({ 
+            "background":PROJECTHERO, 
+            "background-position":"50% 50%",
+            "background-size":"cover",
+            "background-repeat":"no-repeat" 
+        });
 
         /* Project Name Setup */
         const PNAME = "#"+(PROJECTID)+" p:first-of-type";
@@ -60,15 +65,25 @@ $(document).ready(function(){
 
     $("#about").click(function() { 
         $("#pullupContent .fullDescription").load("pages/about.html"); 
-        $("#pullupContent .hero").css({ "background": "url(images/about/banner-about.jpg)", "background-position":"50% 50%" });
-        $("#pullupContent .hero h1").html("About Ryan"); /* Project Name Setup */
+        $("#pullupContent .hero").css({ 
+            "background": "url(images/about/banner-about.jpg)", 
+            "background-position":"50% 50%",
+            "background-size":"cover",
+            "background-repeat":"no-repeat" 
+        });
+        $("#pullupContent .hero h1").html("About Yoon"); /* Project Name Setup */
         $("#pullupContent .hero p").html("");
         setPullup(); /* Project Content Setup */
     });
 
     $("#photography").click(function() {
         $("#pullupContent .fullDescription").load("pages/photography.html"); 
-        $("#pullupContent .hero").css({ "background": "url(images/photography/banner-photography.jpg)", "background-position":"50% 50%"});
+        $("#pullupContent .hero").css({ 
+            "background":"url(images/photography/banner-photography.jpg)", 
+            "background-position":"50% 50%",
+            "background-size":"cover",
+            "background-repeat":"no-repeat" 
+        });
         $("#pullupContent .hero h1").html("Photography"); /* Project Name Setup */
         $("#pullupContent .hero p").html("");
         setPullup(); /* Project Content Setup */
